@@ -40,11 +40,14 @@ for i in range(1, 101):
     name_pattern = re.compile(r'<div[^>]*tw-text-gray-700[^>]*>(.*?)\s*<div[^>]*tw-block.*?>(.*?)</div>', re.DOTALL)
     symbol_pattern = re.compile(r'<div[^>]*tw-block[^>]*>(.*?)</div>', re.DOTALL)  
     price_pattern = re.compile(r'<span[^>]*data-price-target="price"[^>]*>(\$\s*[0-9,.]+)</span>')  
-    price_change_24h_pattern = re.compile(r'data-24h="true".*?>.*?([+-]?\d+\.?\d*)%<')
+    price_change_24h_pattern = re.compile(r'data-json="\{&quot;usd&quot;:(-?\d+\.?\d*)\}"[^>]*24h[^>]*>\s*(.*?)<')
     price_change_7d_pattern = re.compile(r'data-json="\{&quot;usd&quot;:(-?\d+\.?\d*)\}"[^>]*7d[^>]*>\s*(.*?)<') 
     price_change_1h_pattern = re.compile(r'data-json="\{&quot;usd&quot;:(-?\d+\.?\d*)\}"[^>]*1h[^>]*>\s*(.*?)<')
     
-    all_in_one_pattern = re.compile(r'<td[^>]*data-sort="[^"]*"[^>]*>[\s\S]*?<span[^>]*>\s*(\$\d+(?:,\d{3})*(?:\.\d{1,2})?)\s*</span>')
+    all_in_one_pattern = re.compile(r'<td[^>]*data-sort="[^"]*"[^>]*>[\s\S]*?<span[^>]*>\s*(\$\d*(?:,\d{3})*(?:\.\d{1,4})?)\s*</span>')
+
+
+
 
 
     for block in blocks:
