@@ -31,3 +31,4 @@ Za CSV datoteko:
 - csv
 - pandas
 - re
+- matplotlib.pyplot
